@@ -1,5 +1,3 @@
-import org.checkerframework.checker.units.qual.K;
-
 public class KEmptySlots {
 
     public static void main(String[] args) {

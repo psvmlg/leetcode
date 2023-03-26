@@ -1,9 +1,9 @@
 import java.util.HashMap;
 
-class LRUCache {
+class LRUCache2 {
 
     public static void main(String[] args) {
-        LRUCache d = new LRUCache(2);
+        LRUCache2 d = new LRUCache2(2);
         d.put(2,1);
         d.put(2,2);
 //        System.out.println(d.get(1));
@@ -21,7 +21,7 @@ class LRUCache {
     Node tail = null;
     HashMap<Integer, Node> map = new HashMap<>();
 
-    public LRUCache(int capacity) {
+    public LRUCache2(int capacity) {
         cap = capacity;
     }
 

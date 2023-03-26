@@ -22,6 +22,8 @@ fun coinChange(coins: IntArray, amount: Int) {
             }
         }
     }
+}
 
-
+fun main() {
+    println("FF")
 }
