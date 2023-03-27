@@ -4,6 +4,8 @@ import kotlin.collections.HashSet
 fun main() {
     val names: HashSet<Person> = HashSet()
 
+
+
     val person = Person("AA", "BB")
     names.add(person)
     names.add(Person("FF", "JJ"))

@@ -1,8 +1,8 @@
 class LRUCache(capacity: Int) {
 
-    val map = HashMap<Int, Node>()
-    val head = Node(0, 0)
-    val tail = Node(0, 0)
+    val map = HashMap<Int, LruNode>()
+    val head = LruNode(0, 0)
+    val tail = LruNode(0, 0)
     val cap = capacity
 
     fun get(key: Int): Int {
@@ -27,7 +27,7 @@ class LRUCache(capacity: Int) {
                     makeHead(nodeToAdd)
                 }
             } else {
-                val node = Node(key, value)
+                val node = LruNode(key, value)
                 makeHead(node)
                 map.put(key, node)
             }
@@ -40,14 +40,14 @@ class LRUCache(capacity: Int) {
             } else {
                 val removedNode = removeLast()
                 map.remove(removedNode?.keys)
-                val node = Node(key, value)
+                val node = LruNode(key, value)
                 makeHead(node)
                 map[key] = node
             }
         }
     }
 
-    private fun removeNode(node: Node) {
+    private fun removeNode(node: LruNode) {
         val prev = node.prev
         val next = node.next
         prev?.next = next
@@ -56,7 +56,7 @@ class LRUCache(capacity: Int) {
         node.prev = null
     }
 
-    private fun makeHead(node: Node) {
+    private fun makeHead(node: LruNode) {
         if (head.next != null) {
             val curNode = head.next
             head.next = node
@@ -73,7 +73,7 @@ class LRUCache(capacity: Int) {
         }
     }
 
-    private fun removeLast(): Node? {
+    private fun removeLast(): LruNode? {
         if (tail.prev != null) {
             var prev = tail.prev
             tail.prev = tail.prev?.prev
@@ -87,8 +87,8 @@ class LRUCache(capacity: Int) {
 }
 
 class Node(key: Int, num: Int) {
-    var next: Node? = null
-    var prev: Node? = null
+    var next: LruNode? = null
+    var prev: LruNode? = null
     val keys = key
     var nums = num
 }
