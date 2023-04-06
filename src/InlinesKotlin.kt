@@ -1,3 +1,4 @@
+import java.awt.TextArea
 import java.util.*
 
 inline fun f(crossinline body: () -> Unit, body2: () -> Unit) {
@@ -10,23 +11,20 @@ inline fun f(crossinline body: () -> Unit, body2: () -> Unit) {
 
     val arr = List(2) {}
     val g ="d".compareTo("f")
-    val f = object: Runnable {
-        override fun run() = body()
-
-    }
+    val f = Runnable { body() }
 }
 
-fun main() {
-    val arr = List(2) {0}
-    arr.toList()
-    val map = HashMap<String, List<String>>()
-    for (i in map.keys) {
-
-    }
-    val f = 'c'
-    println(f-'a')
-    println(arr.toString())
-}
+//fun main() {
+//    val arr = List(2) {0}
+//    arr.toList()
+//    val map = HashMap<String, List<String>>()
+//    for (i in map.keys) {
+//
+//    }
+//    val f = 'c'
+//    println(f-'a')
+//    println(arr.toString())
+//}
 
 fun groupAnagrams(strs: Array<String>): List<List<String>> {
 
@@ -55,4 +53,46 @@ fun groupAnagrams(strs: Array<String>): List<List<String>> {
         }
     }
     return ans.toList()
+}
+
+
+inline fun doSomething(action: () -> Unit, g: MutableList<Int>) {
+    val g = intArrayOf()
+    g.sort()
+
+    action()
+//    someFunction {
+//
+//        action()
+//
+//    }
+    println("VVV")
+
+}
+
+fun someFunction(action: () -> Unit) {
+
+}
+
+fun main() {
+//    doSomething {
+//        println("Inside the inline function")
+//        return
+//    }
+    println("In the main execution")
+    var f = TestSealedClass.Test
+    var g = TestSealedClass.Test2()
+}
+
+inline fun noinlinetest(lambda: () -> Unit) {
+    secondInline(lambda)
+}
+
+inline fun secondInline(lambda: () -> Unit) {
+    lambda()
+}
+
+sealed class TestSealedClass {
+    object Test: TestSealedClass()
+    class Test2: TestSealedClass()
 }

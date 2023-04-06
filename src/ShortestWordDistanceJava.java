@@ -1,4 +1,4 @@
-class ShortestWordDistance {
+class ShortestWordDistanceJava {
     public int shortestDistance(String[] arr, String word1, String word2) {
 
         int word1Match = -1;
